@@ -1,0 +1,256 @@
+@import 'modal.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #4A90E2;
+  --secondary-color: #50C878;
+  --danger-color: #E74C3C;
+  --bg-color: #F5F7FA;
+  --card-bg: #FFFFFF;
+  --text-primary: #2C3E50;
+  --text-secondary: #7F8C8D;
+  --border-color: #E0E6ED;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: 400px 1fr;
+  }
+}
+
+section {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+input[type="number"],
+input[type="datetime-local"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: #3A7BC8;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.records-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.stats span {
+  background: var(--bg-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.record-item {
+  padding: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.record-item:hover {
+  border-color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.record-type {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.record-time {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.record-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.detail-item {
+  background: var(--bg-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.detail-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.record-notes {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--bg-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.record-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-delete {
+  padding: 6px 12px;
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-delete:hover {
+  background: #C0392B;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.empty-state-text {
+  font-size: 1.1rem;
+}

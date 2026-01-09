@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宝宝喂养记录</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>🍼 宝宝喂养记录</h1>
+    </header>
+
+    <main>
+      <section class="add-record">
+        <h2>添加新记录</h2>
+        <form id="feedingForm">
+          <div class="form-group">
+            <label for="feedingType">喂养方式：</label>
+            <select id="feedingType" required>
+              <option value="母乳">母乳</option>
+              <option value="奶粉">奶粉</option>
+              <option value="混合">混合</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="amount">奶量（ml）：</label>
+            <input type="number" id="amount" placeholder="例如：120" min="0">
+          </div>
+
+          <div class="form-group">
+            <label for="duration">时长（分钟）：</label>
+            <input type="number" id="duration" placeholder="例如：15" min="0">
+          </div>
+
+          <div class="form-group">
+            <label for="feedingTime">时间：</label>
+            <input type="datetime-local" id="feedingTime" required>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">备注：</label>
+            <textarea id="notes" rows="3" placeholder="可选的备注信息..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">添加记录</button>
+        </form>
+      </section>
+
+      <section class="records">
+        <div class="records-header">
+          <h2>历史记录</h2>
+          <div class="stats">
+            <span id="todayCount">今日：0 次</span>
+            <span id="todayTotal">总量：0 ml</span>
+          </div>
+        </div>
+        <div id="recordsList" class="records-list">
+          <!-- 记录将动态添加到这里 -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- 删除确认模态框 -->
+  <div id="deleteModal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>确认删除</h3>
+      </div>
+      <div class="modal-body">
+        <p>确定要删除这条记录吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelDelete" class="btn-secondary">取消</button>
+        <button id="confirmDelete" class="btn-danger">删除</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
