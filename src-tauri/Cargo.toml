@@ -1,6 +1,6 @@
 [package]
 name = "baby-feeding-tracker"
-version = "1.0.1"
+version = "1.0.2"
 description = "宝宝喂养记录软件"
 authors = ["Damon"]
 edition = "2021"
